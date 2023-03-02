@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link href="unitConverter.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Unit Converter
+        </div>
+        <div class="input">
+            <input type="number" class="value" placeholder="in cm">
+        </div>
+        <div class="answer">
+            <div class="one"><span id="one">0 m</span></div>
+            <div class="two"><span id="two">0 inch</span></div>
+            <div class="three"><span id="three">0 feet</span></div>
+        </div>
+    </div>
+    <script async>
+        const value= document.querySelector('.value');
+        function perform(){
+        
+        let input=value.value;
+        console.log(input);
+        let meter=input/100;
+        let inches=((input*0.394).toFixed(3));
+        let feet=((input*0.0328084).toFixed(4));
+        document.getElementById('one').innerText=`${meter} m`;
+        document.getElementById('two').innerText=`${inches} inches`;
+        document.getElementById('three').innerText=`${feet} feet`;
+        }
+        let main=document.querySelector('.container');
+        main.addEventListener('input',perform)
+
+    </script>
+</body>
+</html>
